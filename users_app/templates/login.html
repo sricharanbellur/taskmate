@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title   %}
+  <title>Login Form-Taskmate</title>
+{% endblock title %}
+{% block text %}
+<div class="container">
+</br>
+<h2> Taskmate Login Form </h2>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong> 
+            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" class="mt-3 col-8 ">
+        {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+   
+</div>
+{% endblock text %}
+
+
+{% comment %} <div class="mb-3">
+                <label for="usrname" class="form-label">Username*</label>
+                <input type="username" class="form-control" id="username" aria-describedby="usernameHelp">
+                <div id="usernameHelp" class="form-text">Username should not contain any special characters nor spaces</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div> {% endcomment %}
